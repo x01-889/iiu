@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تمت العملية بنجاح</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* CSS styles here */
+        /* إضافة CSS */
+        /* الستايلات هنا */
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(110deg, #0f1829, #050812);
+            overflow-x: hidden;
+            /* تجنب الإضافة الأفقية */
+        }
+
+        .big-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #000;
+            padding: 20px;
+            /* إضافة هامة للهواتف الصغيرة */
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        header {
+            min-height: 60px;
+            width: 100%;
+            border-bottom: 1px solid #fff8;
+            overflow: hidden;
+            margin-bottom: 20px;
+            /* تعديل للهواتف الصغيرة */
+        }
+
+        header .logo h1 {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 60px;
+            text-shadow: 0 3px white;
+            font-size: 1.5rem;
+            /* تعديل للهواتف الصغيرة */
+        }
+
+        header nav {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            /* تعديل للهواتف الصغيرة */
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            padding: 7px 20px;
+            /* تعديل للهواتف الصغيرة */
+            text-transform: uppercase;
+            text-shadow: 0 0 5px white;
+            font-size: 0.8rem;
+            /* تعديل للهواتف الصغيرة */
+        }
+
+        .active {
+            background: teal;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            color: turquoise;
+        }
+
+        section {
+            width: 100%;
+            min-height: 100vh;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            text-shadow: 0 0 5px white;
+            padding: 0 10px;
+            /* تعديل للهواتف الصغيرة */
+        }
+
+        section h2 {
+            text-transform: uppercase;
+            font-size: 2rem;
+            /* تعديل للهواتف الصغيرة */
+            letter-spacing: 10px;
+            margin-bottom: 10px;
+            /* تعديل للهواتف الصغيرة */
+        }
+
+        section p {
+            line-height: 1.4;
+            margin: 10px 0;
+            /* تعديل للهواتف الصغيرة */
+            letter-spacing: 2px;
+            /* تعديل للهواتف الصغيرة */
+            font-size: 0.8rem;
+            /* تعديل للهواتف الصغيرة */
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            /* تعديل للهواتف الصغيرة */
+        }
+
+        footer h2 {
+            text-transform: uppercase;
+            letter-spacing: 10px;
+        }
+
+        footer p {
+            max-width: 600px;
+            margin: 15px auto;
+            line-height: 1.4;
+            letter-spacing: 2px;
+        }
+
+        .download {
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .app-download {
+            height: 3rem;
+            width: 10rem;
+            background-size: cover;
+        }
+
+        .app-download:nth-child(1) {
+            background-image: url('https://i.postimg.cc/3wW2ZcVS/apple-button.png');
+        }
+
+        .app-download:nth-child(2) {
+            background-image: url(https://i.postimg.cc/Z5wrpS7v/googleplay-button.png);
+        }
+
+        /* CSS لعرض رسالة النسخ */
+        #copyMessage {
+            color: green;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* CSS لرسالة النص بعد النسخ */
+        #copyButtonMessage {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            /* تعديل للهواتف الصغيرة */
+            color: white;
+        }
+
+        @media (max-width: 1000px) {
+            nav ul {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 850px) {
+            header {
+                text-align: center;
+            }
+
+            header .logo h1 {
+                font-size: 1.2rem;
+            }
+        }
+
+        input text {
+            font-size: 0.8rem;
+
+        }
+
+        button {
+            background-color: teal;
+            /* لون خلفية الزر */
+            color: white;
+            /* لون النص */
+            padding: 10px 20px;
+            /* هوامش داخلية للزر */
+            border: none;
+            /* إزالة الحدود */
+            border-radius: 5px;
+            /* تدوير زوايا الزر */
+            cursor: pointer;
+            /* تحويل المؤشر إلى شكل يد عند التحويل */
+        }
+
+        button:hover {
+            background-color: turquoise;
+            /* لون الخلفية عند تحويل المؤشر */
+        }
+        #getGiftsButton {
+    position: relative; /* جعل الزر موضعي */
+}
+
+/* للحركة إلى اليسار */
+#getGiftsButton.move-left {
+    left: -10px; /* قم بتعيين القيمة التي تريدها */
+}
+
+/* للحركة إلى اليمين */
+#getGiftsButton.move-right {
+    left: 10px; /* قم بتعيين القيمة التي تريدها */
+}
+
+/* للحركة للأعلى */
+#getGiftsButton.move-up {
+    top: -10px; /* قم بتعيين القيمة التي تريدها */
+}
+
+/* للحركة للأسفل */
+#getGiftsButton.move-down {
+    top: 10px; /* قم بتعيين القيمة التي تريدها */
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="big-container" style="display: none;">
+        <header>
+            <!-- Header structure here -->
+            <!-- الهيكل الخاص بالهيدر -->
+            <div class="logo">
+                <h1>pubg</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ABOUT.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="content">
+            <!-- Content section here -->
+            <h2>لقد تمت العملية بنجاح!</h2>
+            <p>تم قبول الحساب رقم <span id="confirmedPhoneNumber"></span> بنجاح.</p>
+            <p>يجب عليك ان تقوم بعمل المهام مقابل الهدايا</p>
+            <p>ساعدنا في نشر الفرح والمتعة! يمكنك مشاركة الرابط مع أصدقائك وأحبائك لتمكينهم أيضًا من الاستمتاع بالهدايا
+                المجانية. كلما قام أحد من أصدقائك بالتسجيل من خلال الرابط الذي شاركته معه، ستكون لك فرصة للحصول على
+                المزيد من الهدايا. لا تتردد في مشاركة الرابط الآن واجعل أصدقائك يستمتعون بالفوائد نفسها التي تستمتع بها
+                أنت!</p>
+            <h1>قم بنسخ الرابط لتفعيل الزر</h1>
+            <input type="text" id="linkField" value="https://example.com/gift" readonly>
+            <br>
+           <!-- زر نسخ الرابط -->
+<button onclick="copyLink()">نسخ الرابط</button>
+
+<!-- عنصر div لعرض رسالة النسخ -->
+<div id="copyMessage"></div>
+
+<!-- عنصر div لرسالة النص بعد النسخ -->
+<div id="copyButtonMessage" style="display: none;">يمكنك الضغط على الزر الآن</div>
+
+<!-- زر الحصول على الهدايا -->
+<a href="hdaeaa.html" id="getGiftsButton" class="active" style="display: none;">احصل على الهدايا</a>
+
+            <br>
+            <br>
+            <h3>يمكنك تحميل اللعبة عن طريق</h3>
+            <div class="download">
+                <a href="#" class="app-download"></a>
+                <a href="#" class="app-download"></a>
+            </div>
+
+        </section>
+        <footer>
+            <!-- Footer content here -->
+            <p>© 2024 pubg جميع الحقوق محفوظة</p>
+            <div class="row">
+                <a href="https://www.facebook.com/PUBGMOBILE.MENA.OFFICIAL/?brand_redir=908555025972310&locale=ar_AR"><i
+                        class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/PUBGMOBILE_ARB?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i
+                        class="fa fa-twitter"></i></a>
+                <a href="https://www.instagram.com/pubgmobile_mena/?hl=ar"><i class="fa fa-instagram"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="waitMessage"
+        style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(110deg, #0f1829, #050812); color: white; font-size: 2rem; text-shadow: 0 0 5px white;">
+        انتظر...</div>
+
+    <script>
+        setTimeout(function () {
+            var waitMessage = document.getElementById("waitMessage");
+            waitMessage.style.display = "none";
+
+            var bigContainer = document.querySelector(".big-container");
+            bigContainer.style.display = "flex";
+
+            // Show content section after 3 seconds
+            var contentSection = document.getElementById("content");
+            contentSection.style.display = "block";
+
+            // Show the "Get Gifts" button
+            var getGiftsButton = document.getElementById("getGiftsButton");
+            getGiftsButton.style.display = "block";
+        }, 3000);
+
+        // استرجاع الرقم المدخل من الصفحة السابقة وعرضه في الصفحة الحالية
+        var phoneNumber = sessionStorage.getItem("phoneNumber");
+        document.getElementById("confirmedPhoneNumber").textContent = phoneNumber;
+
+        // دالة لعرض رسالة النسخ
+        function showCopyMessage() {
+            var copyMessage = document.getElementById("copyMessage");
+            copyMessage.textContent = "قم بنسخ الرابط!";
+        }
+
+        // دالة لعرض رسالة النص بعد النسخ وإظهار الزر "أحصل على الهدايا"
+        function showCopyButtonMessage() {
+            var copyButtonMessage = document.getElementById("copyButtonMessage");
+            copyButtonMessage.style.display = "block";
+
+            var getGiftsButton = document.getElementById("getGiftsButton");
+            getGiftsButton.textContent = "أحصل على الهدايا";
+            getGiftsButton.setAttribute("href", "hdaeaa.html");
+            getGiftsButton.setAttribute("class", "active");
+        }
+
+        // دالة لنسخ الرابط
+        function copyLink() {
+            var linkField = document.getElementById("linkField");
+            linkField.select();
+            document.execCommand("copy");
+            // عرض رسالة النسخ
+            var copyMessage = document.getElementById("copyMessage");
+            copyMessage.textContent = "تم نسخ الرابط بنجاح!";
+            // إظهار رسالة النص بعد النسخ
+            showCopyButtonMessage();
+        }
+    </script>
+</body>
+
+</html>

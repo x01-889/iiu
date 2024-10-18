@@ -1,0 +1,244 @@
+*{
+    font-family: 'Poppins', sans-serif;
+
+margin: 0;
+ padding: 0;
+box-sizing: border-box;
+scroll-behavior: smooth; 
+}
+body{
+min-height: 100vh;
+background: linear-gradient(110deg, #0f1829, #050812);
+
+}
+.big-container{
+width: 100%;
+height: 95vh;
+max-width: 1200px;
+position: absolute;
+top:50%;
+left: 50%;
+transform: translate(-50%, -50%);
+overflow: hidden;
+border-radius: 10px;
+box-shadow: 0 0 20px #000;
+
+}
+.container{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+
+video{
+    position: absolute; top:0;
+    left: 0;
+    width: 100%;
+    height: 100%; display: block; object-fit: cover;
+    z-index: -1;
+    }
+    header{
+    min-height: 60px;
+    width: 100%;
+    border-bottom: 1px solid #fff8;
+    overflow: hidden;
+    }
+
+    header .logo h1{ 
+        color: white;
+    text-transform: uppercase; 
+    letter-spacing: 4px;
+     line-height: 60px;
+    text-shadow: 0 3px white;
+    }
+    header nav{
+    float: right;
+    margin-right: 20px;
+    min-height: 60px; display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    }
+    nav ul{
+    margin-right: 30px;
+    min-width: 450px;
+    }
+    
+    nav ul li{
+        list-style: none; 
+        display: inline-block;
+        }
+        a{
+        text-decoration: none;
+        color: white;
+        padding: 7px 26px;
+        text-transform: uppercase; 
+        display: inline-block;
+        text-shadow: 0 0 5px white;
+        }
+        .active{
+        background:teal;
+        border-radius: 20px;
+        }
+        a:hover{
+        color: turquoise;
+        }
+
+        nav form{
+        height: 30px;
+         min-width: 300px;
+          margin: 10px 0;
+          }
+        form input{
+        height: 100%;
+        width: 250px;
+        border: 1px solid ☐teal;
+        background:#0007;
+        padding: 0 5px;
+        color: white;
+        outline: none;
+        }
+        form button{
+        width: 50px;
+        height: 100%;
+        border: 1px solid ☐teal;
+        background: #0007;
+        color: white;
+        cursor: pointer;
+        }
+
+        section{
+        
+            width: 100%;
+            min-height: 100vh;
+             display: flex;
+            justify-content: center; 
+            align-items: center; 
+            flex-direction: column; 
+            color: white;
+            text-align: center; 
+            text-shadow: 0 0 5px white;
+            }
+            section h2 {
+            text-transform: uppercase;
+            font-size: 3em;
+            letter-spacing: 10px;
+            }
+
+            section p{
+                line-height: 1.4; 
+                margin: 15px 0;
+                letter-spacing: 3px; 
+                text-transform: uppercase;
+                }
+
+                footer{
+                width: 100%;
+                text-align: center;
+                color: white;
+                }
+
+                footer h2{
+                text-transform: uppercase;
+                letter-spacing: 10px;
+                }
+                footer p{
+                max-width: 600px;
+                margin: 15px auto;
+                line-height: 1.4;
+                letter-spacing: 2px;
+                }
+
+                @media (max-width: 1000px){
+                    header .logo,
+                    header nav{
+                        width: 100%;
+                        margin: 0;
+                        text-align: center;
+                    }
+                }
+
+                @media (max-width: 850px){
+                    nav ul{
+                        min-width: 300px;
+                        margin: 0;
+                    }
+                    nav ul a{
+                        padding: 5px 10px;
+                    }
+                }
+
+                .download {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    padding: 0rem;
+                }
+                
+                .app-download {
+                    height: 3rem;
+                    width: 10rem;
+                    background-size: cover;
+                }
+                
+                .app-download:nth-child(1) {
+                    background-image: url('https://i.postimg.cc/3wW2ZcVS/apple-button.png');
+                }
+                
+                .app-download:nth-child(2) {
+                    background-image: url(https://i.postimg.cc/Z5wrpS7v/googleplay-button.png);
+                }
+                hr {
+                    border: none; /* يزيل الحدود الافتراضية */
+                    border-top: 2px solid white; /* يضيف خط أفقي بعرض 2 بكسل ولون أبيض */
+                    width: 70%; /* يضبط عرض الخط الأفقي إلى 50% من عرض العنصر الذي يحتوي عليه */
+                    margin: 20px auto; /* يضبط الهامش الخارجي للخط الأفقي ليكون 20 بكسل من كل الجهات ويوسطه بشكل أفقي */
+                }
+                h4 hr {
+                    border: none; /* يزيل الحدود الافتراضية */
+                    border-top: 2px solid rgb(10, 5, 5); /* يضيف خط أفقي بعرض 2 بكسل ولون أبيض */
+                    width: 100%; /* يضبط عرض الخط الأفقي إلى 50% من عرض العنصر الذي يحتوي عليه */
+                    margin: 20px auto; /* يضبط الهامش الخارجي للخط الأفقي ليكون 20 بكسل من كل الجهات ويوسطه بشكل أفقي */
+                }
+               
+                .status-row {
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+                
+                .status-label {
+                    font-weight: bold;
+                    color: #333;
+                }
+                
+                .status-dynamic {
+                    font-size: 24px;
+                    color: #ff4500;
+                }
+                /* تنسيق الزر */
+.counter-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* تحويل نموذج التغيير */
+}
+
+/* تنسيق الزر عند التمرير */
+.counter-button:hover {
+    background-color: #fff; /* لون خلفية الزر عند التمرير */
+    color: #000; /* لون النص عند التمرير */
+}
+
+/* تنسيق النص داخل الزر */
+.status-dynamic {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+}

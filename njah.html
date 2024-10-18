@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family''Poppins&display''swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* CSS Styles */
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(110deg, #0f1829, #050812);
+        }
+
+        .big-container {
+            width: 100%;
+            height: 95vh;
+            max-width: 1200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #000;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        header {
+            min-height: 60px;
+            width: 100%;
+            border-bottom: 1px solid #fff8;
+            overflow: hidden;
+        }
+
+        header .logo h1 {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 60px;
+            text-shadow: 0 3px white;
+        }
+
+        header nav {
+            float: right;
+            margin-right: 20px;
+            min-height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul {
+            margin-right: 30px;
+            min-width: 450px;
+        }
+
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            padding: 7px 26px;
+            text-transform: uppercase;
+            display: inline-block;
+            text-shadow: 0 0 5px white;
+        }
+
+        .active {
+            background: teal;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            color: turquoise;
+        }
+
+        section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            text-shadow: 0 0 5px white;
+        }
+
+        section h2 {
+            text-transform: uppercase;
+            font-size: 3em;
+            letter-spacing: 10px;
+        }
+
+        section p {
+            line-height: 1.4;
+            margin: 15px 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+
+        footer h2 {
+            text-transform: uppercase;
+            letter-spacing: 10px;
+        }
+
+        footer p {
+            max-width: 600px;
+            margin: 15px auto;
+            line-height: 1.4;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 1000px) {
+
+            header .logo,
+            header nav {
+                width: 100%;
+                margin: 0;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 850px) {
+            nav ul {
+                min-width: 300px;
+                margin: 0;
+            }
+
+            nav ul a {
+                padding: 5px 10px;
+            }
+        }
+
+        .download {
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 0rem;
+        }
+
+        .app-download {
+            height: 3rem;
+            width: 10rem;
+            background-size: cover;
+        }
+
+        .app-download:nth-child(1) {
+            background-image: url('https://i.postimg.cc/3wW2ZcVS/apple-button.png');
+        }
+
+        .app-download:nth-child(2) {
+            background-image: url(https://i.postimg.cc/Z5wrpS7v/googleplay-button.png);
+        }
+
+        /* Input field styling */
+        input[type="number"] {
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="number"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        /* Error message */
+        #warning {
+            color: red;
+            display: none;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid white;
+            width: 70%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big-container">
+        <div class="container">
+            <header>
+                <!-- Header structure -->
+                <div class="logo">
+                    <h1>pubg</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="ABOUT.html">About</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <br>
+            <section>
+                <h1>
+                    يبدو أن هذه هي زيارتك الأولى لموقعنا
+                </h1>
+                <p>
+                    ونحن سعداء بتواجدك هنا! لهذا، نود أن نقدم لك عرضًا خاصًا: ستحصل على 10 هدايا مميزة خلال يومين فقط
+                    بمجرد استلام هذه الهدايا، سيتوجب عليك أداء بعض المهام البسيطة داخل الموقع للحصول على المزيد من
+                    الهدايا الرائعة. فهل أنت مستعد لاستكشاف ما يمكن أن يقدمه موقعنا لك؟
+                </p>
+                <p>
+                    أضغط متابعة واحصل علي 5 هدايا اليوم و 5 هدايا غدا
+                </p>
+                <br>
+                <a href="hdaeaa.html" class="active" onclick="savePhoneNumber()">متابعة</a>
+                <br>
+                <br>
+
+                <div class="row">
+                    <a
+                        href="https://www.facebook.com/PUBGMOBILE.MENA.OFFICIAL/?brand_redir=908555025972310&locale=ar_AR"><i
+                            class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/PUBGMOBILE_ARB?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i
+                            class="fa fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/pubgmobile_mena/?hl=ar"><i class="fa fa-instagram"></i></a>
+                </div>
+                <br>
+                <br>
+
+
+                <footer>
+                    <div class="footer-copyright">
+                        <p>© 2024 PU@ pubg جميع ألحقوق محفوظه</p>
+                    </div>
+                </footer>
+            </section>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

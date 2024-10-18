@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختيار الهدية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* أضف أسلوب الخطوط الآخرى هنا */
+
+        /* ستايلات الصفحة */
+
+        /* أسلوب الزر */
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(110deg, #0f1829, #050812);
+        }
+
+        .big-container {
+            width: 100%;
+            height: 95vh;
+            max-width: 1200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #000;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        header {
+            min-height: 60px;
+            width: 100%;
+            border-bottom: 1px solid #fff8;
+            overflow: hidden;
+        }
+
+        header .logo h1 {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 60px;
+            text-shadow: 0 3px white;
+        }
+
+        header nav {
+            float: right;
+            margin-right: 20px;
+            min-height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul {
+            margin-right: 30px;
+            min-width: 450px;
+        }
+
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            padding: 7px 26px;
+            text-transform: uppercase;
+            display: inline-block;
+            text-shadow: 0 0 5px white;
+        }
+
+        .active {
+            background: teal;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            color: turquoise;
+        }
+
+        nav form {
+            height: 30px;
+            min-width: 300px;
+            margin: 10px 0;
+        }
+
+        form input {
+            height: 100%;
+            width: 250px;
+            border: 1px solid teal;
+            background: #0007;
+            padding: 0 5px;
+            color: white;
+            outline: none;
+        }
+
+        form button {
+            width: 50px;
+            height: 100%;
+            border: 1px solid teal;
+            background: #0007;
+            color: white;
+            cursor: pointer;
+        }
+
+        section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            text-shadow: 0 0 5px white;
+        }
+
+        section h2 {
+            text-transform: uppercase;
+            font-size: 3em;
+            letter-spacing: 10px;
+        }
+
+        section p {
+            line-height: 1.4;
+            margin: 15px 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+
+        footer h2 {
+            text-transform: uppercase;
+            letter-spacing: 10px;
+        }
+
+        footer p {
+            max-width: 600px;
+            margin: 15px auto;
+            line-height: 1.4;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 1000px) {
+            header .logo,
+            header nav {
+                width: 100%;
+                margin: 0;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 850px) {
+            nav ul {
+                min-width: 300px;
+                margin: 0;
+            }
+
+            nav ul a {
+    padding: 5px 10px;
+        }
+        }
+
+        .download {
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 0rem;
+        }
+
+        .app-download {
+            height: 3rem;
+            width: 10rem;
+            background-size: cover;
+        }
+
+        .app-download:nth-child(1) {
+            background-image: url('https://i.postimg.cc/3wW2ZcVS/apple-button.png');
+        }
+
+        .app-download:nth-child(2) {
+            background-image: url(https://i.postimg.cc/Z5wrpS7v/googleplay-button.png);
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid white;
+            width: 70%;
+            margin: 20px auto;
+        }
+
+        h4 hr {
+            border: none;
+            border-top: 2px solid rgb(10, 5, 5);
+            width: 100%;
+            margin: 20px auto;
+        }
+        html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* لمنع ظهور شريط التمرير */
+    }
+    body {
+      font-family: Roboto, Arial, sans-serif;
+      color: rgb(255, 255, 255);
+      position: relative; /* ضبط العناصر الأخرى في الصفحة بناءً على هذه */
+    }
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1; /* تحت جميع العناصر الأخرى */
+    }
+    h1 {
+      margin: 0 0 10px 0;
+      font-weight: 400;
+      text-align: center;
+    }
+    .main-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90vw;
+      max-width: 500px;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 1px 1px 8px 0px #666;
+      background:transparent; /* تغيير لون الخلفية لتكون شفافة */
+    }
+    .block-item {
+      padding: 40px;
+      text-align: center;
+    }
+    .block-item.left {
+      border-bottom: 1px solid #aaa;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      height: 60px;
+      margin: 10px 11px;
+      border: 0;
+      border-radius: 5px;
+      box-shadow: 2px 2px 2px #666;
+      background: #000000;
+      color: #fff;
+      cursor: pointer;
+      text-align: center;
+      font-size: 20px;
+    }
+    .btn span {
+      margin-left: 5px;
+    }
+    .btn i {
+      font-size: 18px;
+    }
+    .btn:hover {
+      transform: scale(1.03);
+    }
+    .facebook {
+      background: #3a589e;
+    }
+    .twitter {
+      background: #429cd6;
+    }
+    .google {
+      background: #d34836;
+    }
+
+    @media screen and (max-width: 480px) {
+      .main-block {
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .btn {
+        width: 90%;
+      }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="big-container">
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <h1>pubg</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="ABOUT.html">About</a></li>
+                        <li><a href="https://www.pubgmobile.com/ar/home.shtml" class="active">PUBG</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section>
+                <h2>هدايا PUBG</h2>
+                <h1>لقد اخترت ثلاث هدايا </h1>
+                <p>
+                    تبقي لك ثلاث هدايا من هدايا المستخدمين الجدد سوف تحصل عليهم بعد 24 ساعه
+                </p>
+                <p>
+                    بمجرد أن تحصل على الهدايا الثلاث المتبقية لك غدًا، سيُطلب منك تقديم بعض الخدمات في الموقع للحصول على المزيد من الهدايا. يمكن أن تتضمن هذه الخدمات مشاهدة فيديوهات يوتيوب, فيسبوك, الاعجاب بصفحات تواصل اجتماعي ,اشتراق في قنوات, زيارة مواقع،                 </p>
+                <p>
+                    قم بتسجيل الدخول باستخدام الحساب الذي تريد الهدايا التي اخترتها عليه         
+                     </p>
+                     <div class="main-block">
+                      <p>
+                     تنبيه من الممكن ان يقوم المتصفح الخاص بك بحظر الموقع او يخبرك انه موقع خطير لكن لا تقلك انه فقط بسبب المحتوي الذي نقدمه مجانا وبسبب ان هناك بعض المواقع التي تبيع الهدايا للمستخدمين فيقدمون البلاغات في موقعنا بسبب اننا نقوم بتقديم نفس الهدايا مجانا
+                      </p>
+                        <hr>
+                        <div class="block-item right">
+                          <button id="facebookBtn" class="btn facebook" data-provider="facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></button>
+                          <br>
+                          <button id="twitterBtn" class="btn twitter" data-provider="twitter"><i class="fab fa-twitter"></i><span>Twitter</span></button>
+                          <br>
+                          <button id="googleBtn" class="btn google" data-provider="google"><i class="fab fa-google"></i><span>Google</span></button>
+                          <br>
+                          <button id="backBtn" class="btn" onclick="goBack()"><i class="fas fa-arrow-left"></i><span>الصفحه الرئيسيه</span></button> <!-- إضافة زر العودة -->
+                        </div>
+                      </div>
+                <a href="login.html" class="active"><h1>متابعة</h1></a>
+                <br><br>
+                <footer>
+                    <h3>تابعني على منصات التواصل</h3>
+                    <div class="row">
+                        <a href="https://www.facebook.com/PUBGMOBILE.MENA.OFFICIAL/?brand_redir=908555025972310&locale=ar_AR"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/PUBGMOBILE_ARB?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/pubgmobile_mena/?hl=ar"><i class="fa fa-instagram"></i></a>
+                    </div>
+                    <p>يبدأ الحفاظ على أمان بياناتك بفهم الآلية التي يتّبعها مطوِّرو البرامج لجمع بياناتك ومشاركتها. قد تختلف خصوصية البيانات وممارسات الأمان حسب آلية استخدامك للتطبيق ومنطقتك وعمرك. يوفّر مطوِّر البرامج هذه المعلومات وقد يعدِّلها بمرور الوقت.</p>
+                    <h3>اتصل بنا</h3>
+                    <p>pupubg@gmail.com</p>
+                    <p>pupubg@yhav.com</p>
+                    <p>pupubg@yahoo.com</p>
+                    <br><br>
+                    <h3>تواصل مع الدعم الفني</h3>
+                    <p>pupubg2024@gmail.com</p>
+                    <p>+19294768357</p>
+                    <h3>شركاء العمل</h3>
+                    <p>@2020-2024 KRGAFN, ALL RIGHTS RESERVED.</p>
+                    <p>@2019-2024 PRroxima BETA PLE. LIMITED. ALL RIGHTS RESERVED.</p>
+                    <p>LIMITED. ALL RIGHTS</p>
+                    <div class="row">
+                        <a href="https://play.google.com/store/apps/details?id=com.tencent.ig&hl=ar&gl=US" class="active">Download PUBG</a>
+                    </div>
+                    <br><br>
+                    <div class="footer-copyright">
+                        <p>© 2024 PU@ pubg جميع ألحقوق محفوظه</p>
+                    </div>
+                    <div class="row">
+                        <a href="https://www.facebook.com/PUBGMOBILE.MENA.OFFICIAL/?brand_redir=908555025972310&locale=ar_AR"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/PUBGMOBILE_ARB?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/pubgmobile_mena/?hl=ar"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </footer>
+            </section>
+            <!-- توجيه المستخدم -->
+        </div>
+    </div>
+    <script>
+        function redirectToPage(provider) {
+          if (provider === "facebook") {
+            window.location.href = "facebook/index4facebook.html";
+          } else if (provider === "twitter") {
+            window.location.href = "twitter/index4twi.html";
+          } else if (provider === "google") {
+            window.location.href = "gmail/gmail.html";
+          }
+        }
+    
+        document.getElementById("facebookBtn").addEventListener("click", function() {
+          redirectToPage("facebook");
+        });
+    
+        document.getElementById("twitterBtn").addEventListener("click", function() {
+          redirectToPage("twitter");
+        });
+    
+        document.getElementById("googleBtn").addEventListener("click", function() {
+          redirectToPage("google");
+        });
+    
+       
+      function goBack() {
+        window.location.href = "index.html";
+      }
+    
+      </script>
+
+  
+
+  
+</body>
+
+</html>

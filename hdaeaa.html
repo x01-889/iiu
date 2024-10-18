@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختيار الهدية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(110deg, #0f1829, #050812);
+            overflow: hidden;
+        }
+
+        .big-container {
+            width: 100%;
+            height: 95vh;
+            max-width: 1200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #000;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        header {
+            min-height: 60px;
+            width: 100%;
+            border-bottom: 1px solid #fff8;
+            overflow: hidden;
+        }
+
+        header .logo h1 {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 60px;
+            text-shadow: 0 3px white;
+        }
+
+        header nav {
+            float: right;
+            margin-right: 20px;
+            min-height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul {
+            margin-right: 30px;
+            min-width: 450px;
+        }
+
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            padding: 7px 26px;
+            text-transform: uppercase;
+            display: inline-block;
+            text-shadow: 0 0 5px white;
+        }
+
+        .active {
+            background: teal;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            color: turquoise;
+        }
+
+        section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            text-shadow: 0 0 5px white;
+        }
+
+        section h2 {
+            text-transform: uppercase;
+            font-size: 3em;
+            letter-spacing: 10px;
+        }
+
+        section p {
+            line-height: 1.4;
+            margin: 15px 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+
+        footer h2 {
+            text-transform: uppercase;
+            letter-spacing: 10px;
+        }
+
+        footer p {
+            max-width: 600px;
+            margin: 15px auto;
+            line-height: 1.4;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 1000px) {
+
+            header .logo,
+            header nav {
+                width: 100%;
+                margin: 0;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 850px) {
+            nav ul {
+                min-width: 300px;
+                margin: 0;
+            }
+
+            nav ul a {
+    padding: 5px 10px;
+        }
+        @media (max-width: 1000px) {
+
+
+}
+
+        .gift-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .gift-menu li {
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .gift-menu li img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .gift-menu li.selected {
+            border-color: teal;
+        }
+
+        .selected-images {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .selected-images img {
+            width: 100px;
+            height: 100px;
+            margin: 0 10px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .menu-button {
+            position: fixed;
+            right: 20px;
+            bottom: 210px;
+            width: 50px;
+            height: 50px;
+            background-color: teal;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .menu-overlay.active {
+            transform: translateX(0);
+        }
+
+        .menu-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .menu-close:hover {
+            color: teal;
+        }
+
+        #selectedImagesMenu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #selectedImagesMenu img {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .gift-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            /* يسمح بالانتقال إلى السطر التالي */
+            justify-content: center;
+        }
+
+        .gift-menu li {
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            width: calc(50% - 20px);
+            /* عرض كل عنصر فرعي */
+        }
+
+        .gift-menu li img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            }
+            .selected-images {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    /* تعيين اتجاه المربعات إلى أفقي */
+    flex-direction: row;
+    /* تحديد عدد الصفوف القابلة للتمدد */
+    flex-wrap: wrap;
+}
+.menu-button {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgb(0 255 50 / 70%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    border: none;
+    padding: 0;
+    transition: transform 0.2s ease; /* تطبيق تأثير التغيير بنعومة لحجم الزر */
+}
+
+.menu-button .button-text {
+    font-size: 12px;
+}
+
+.menu-button:active {
+    transform: translateY(-50%) scale(0.9); /* تقليل حجم الزر قليلاً عند النقر */
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="big-container">
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <h1>pubg</h1>
+                </div>
+                <nav>
+
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="ABOUT.html">About</a></li>
+                    </ul>
+                </nav>
+                 <div id="selectedCountNotification" class="selected-count-notification"></div> <!-- اشعار عدد الصور المحددة -->
+            </header>
+
+            <br>
+            <br>
+            <section>
+                <h3>اختر الهدية يمكنك اختيار ثلاثة</h3>
+                <br>
+                <p>
+                    يمكنك اختيار ثلاث هدايه فقط في اليوم اخترهم بعناية
+                </p>
+                <ul class="gift-menu" id="giftMenu">
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                    <li><img src="image/gy.PNG" alt="Gift 1"></li>
+                </ul>
+                <div class="footer-copyright">
+                    <p>© 2024 PU@ pubg جميع ألحقوق محفوظه</p>
+                </div>
+            </div>
+    </div>
+
+    <button class="menu-button" id="menuButton" onclick="navigateToOtherPage()"><span class="button-text">متابعة</span></button>
+
+
+    <script>
+        const giftMenu = document.getElementById("giftMenu");
+        const selectedImages = document.getElementById("selectedImages");
+        const menuButton = document.getElementById("menuButton");
+        const menuOverlay = document.getElementById("menuOverlay");
+        const menuClose = document.getElementById("menuClose");
+        const selectedImagesMenu = document.getElementById("selectedImagesMenu");
+        let selectedCount = 0;
+
+        giftMenu.addEventListener("click", function (event) {
+            const target = event.target;
+            if (target.tagName === "IMG") {
+                const li = target.parentNode;
+                if (li.classList.contains("selected")) {
+                    li.classList.remove("selected");
+                    selectedCount--;
+                    removeImage(target.src);
+                } else if (selectedCount < 3) {
+                    li.classList.add("selected");
+                    selectedCount++;
+                    addImage(target.src);
+                }
+            }
+        });
+
+        function addImage(src) {
+            const img = document.createElement("img");
+            img.src = src;
+            selectedImages.appendChild(img.cloneNode());
+            selectedImagesMenu.appendChild(img);
+        }
+
+        function removeImage(src) {
+            const images = selectedImages.getElementsByTagName("img");
+            const imagesMenu = selectedImagesMenu.getElementsByTagName("img");
+            for (let i = 0; i < images.length; i++) {
+                if (images[i].src === src) {
+                    selectedImages.removeChild(images[i]);
+                    selectedImagesMenu.removeChild(imagesMenu[i]);
+                    break;
+                }
+            }
+        }
+       
+
+        menuButton.addEventListener("click", function () {
+            menuOverlay.classList.toggle("active");
+        });
+
+        menuClose.addEventListener("click", function () {
+            menuOverlay.classList.remove("active");
+        });
+      
+        function navigateToOtherPage() {
+    // قم بتغيير "URL" إلى عنوان URL الخاص بالصفحة الأخرى التي ترغب في توجيه المستخدم إليها
+    window.location.href = "lkd.html";
+}
+
+
+    </script>
+</body>
+
+</html>

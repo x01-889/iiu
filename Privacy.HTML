@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="moo.css">
+    <link href="https://fonts.googleapis.com/css2?family''Poppins&display''swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(110deg, #0f1829, #050812);
+
+        }
+
+        .big-container {
+            width: 100%;
+            height: 95vh;
+            max-width: 1200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #000;
+
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        header {
+            min-height: 60px;
+            width: 100%;
+            border-bottom: 1px solid #fff8;
+            overflow: hidden;
+        }
+
+        header .logo h1 {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 60px;
+            text-shadow: 0 3px white;
+        }
+
+        header nav {
+            float: right;
+            margin-right: 20px;
+            min-height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul {
+            margin-right: 30px;
+            min-width: 450px;
+        }
+
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            padding: 7px 26px;
+            text-transform: uppercase;
+            display: inline-block;
+            text-shadow: 0 0 5px white;
+        }
+
+        .active {
+            background: teal;
+            border-radius: 20px;
+        }
+
+        a:hover {
+            color: turquoise;
+        }
+
+        nav form {
+            height: 30px;
+            min-width: 300px;
+            margin: 10px 0;
+        }
+
+        form input {
+            height: 100%;
+            width: 250px;
+            border: 1px solid ☐teal;
+            background: #0007;
+            padding: 0 5px;
+            color: white;
+            outline: none;
+        }
+
+        form button {
+            width: 50px;
+            height: 100%;
+            border: 1px solid ☐teal;
+            background: #0007;
+            color: white;
+            cursor: pointer;
+        }
+
+        section {
+
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            text-shadow: 0 0 5px white;
+        }
+
+        section h2 {
+            text-transform: uppercase;
+            font-size: 3em;
+            letter-spacing: 10px;
+        }
+
+        section p {
+            line-height: 1.4;
+            margin: 15px 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+
+        footer h2 {
+            text-transform: uppercase;
+            letter-spacing: 10px;
+        }
+
+        footer p {
+            max-width: 600px;
+            margin: 15px auto;
+            line-height: 1.4;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 1000px) {
+
+            header .logo,
+            header nav {
+                width: 100%;
+                margin: 0;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 850px) {
+            nav ul {
+                min-width: 300px;
+                margin: 0;
+            }
+
+            nav ul a {
+                padding: 5px 10px;
+            }
+        }
+
+        .download {
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 0rem;
+        }
+
+        .app-download {
+            height: 3rem;
+            width: 10rem;
+            background-size: cover;
+        }
+
+        .app-download:nth-child(1) {
+            background-image: url('https://i.postimg.cc/3wW2ZcVS/apple-button.png');
+        }
+
+        .app-download:nth-child(2) {
+            background-image: url(https://i.postimg.cc/Z5wrpS7v/googleplay-button.png);
+        }
+
+        hr {
+            border: none;
+            /* يزيل الحدود الافتراضية */
+            border-top: 2px solid white;
+            /* يضيف خط أفقي بعرض 2 بكسل ولون أبيض */
+            width: 70%;
+            /* يضبط عرض الخط الأفقي إلى 50% من عرض العنصر الذي يحتوي عليه */
+            margin: 20px auto;
+            /* يضبط الهامش الخارجي للخط الأفقي ليكون 20 بكسل من كل الجهات ويوسطه بشكل أفقي */
+        }
+
+        h4 hr {
+            border: none;
+            /* يزيل الحدود الافتراضية */
+            border-top: 2px solid rgb(10, 5, 5);
+            /* يضيف خط أفقي بعرض 2 بكسل ولون أبيض */
+            width: 100%;
+            /* يضبط عرض الخط الأفقي إلى 50% من عرض العنصر الذي يحتوي عليه */
+            margin: 20px auto;
+            /* يضبط الهامش الخارجي للخط الأفقي ليكون 20 بكسل من كل الجهات ويوسطه بشكل أفقي */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big-container">
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <h1>pubg</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="ABOUT.html">About</a></li>
+                        <li><a href="#"> Privacy</a></li>
+                        <br>
+                        <br>
+                        <li><a href="https://www.pubgmobile.com/ar/home.shtml" class="active">PUBG</a></li>
+                        <br>
+                        <br>
+                    </ul>
+
+                </nav>
+            </header>
+            <section>
+                <P>
+                    بفخر واعتزاز، نقدم لكم موقعنا الذي يهدف إلى تلبية احتياجات محبي لعبة ببجي  نحن نسعى
+                    لتوفير
+                    فرصة للاعبين للحصول على هدايا قيمة داخل اللعبة دون الحاجة إلى دفع أي تكاليف. يعتبر موقعنا مصدراً
+                    موثوقًا
+                    به للعبين الذين يتطلعون إلى تعزيز تجربتهم في اللعبة وتحسين أدائهم، من خلال المشاركة في الفعاليات
+                    والمسابقات التي ننظمها والتي تتيح لهم الفرصة للفوز بجوائز قيمة. بفضل واجهة المستخدم البسيطة والسهلة،
+                    يمكن للجميع الوصول إلى الهدايا والمشاركة في الفعاليات بكل يسر وسهولة.
+                </P>
+                <br>
+                <br>
+                <p>
+                    سياسة الخصوصية في لعبة  تهدف إلى حماية معلومات اللاعبين وضمان خصوصيتهم أثناء تفاعلهم مع
+                    اللعبة ومنصاتها الرسمية. يتمثل هدف هذه السياسة في جمع واستخدام المعلومات الشخصية بطريقة شفافة وآمنة،
+                    وضمان عدم مشاركتها مع أطراف ثالثة دون موافقة اللاعبين. تشمل المعلومات التي قد يتم جمعها اسم
+                    المستخدم،
+                    عنوان البريد الإلكتروني، معلومات الجهاز، ومعلومات اللعبة الخاصة باللاعب.
+
+                    تتضمن سياسة الخصوصية في  توضيحات حول كيفية جمع المعلومات واستخدامها، بالإضافة إلى حقوق
+                    اللاعبين فيما يتعلق بالوصول إلى معلوماتهم الشخصية وتصحيحها أو حذفها. كما توفر السياسة تفاصيل حول
+                    التدابير الأمنية المتخذة لحماية المعلومات الشخصية من الوصول غير المصرح به أو الاستخدام غير القانوني.
+
+                    باختصار، تعتبر سياسة الخصوصية في PUBG Mobile جزءًا أساسيًا من تجربة اللاعب، حيث تهدف إلى توفير بيئة
+                    آمنة
+                    وموثوقة للجميع داخل اللعبة، وتعزيز الثقة بين اللاعبين والمطورين.
+                </p>
+                <br>
+                <br>
+                <h3>اتصل بنا</h3>
+                <p>pupubg@gmail.com</p>
+                <p>pupubg@yhav.com</p>
+                <p>pupubg@yahoo.com</p>
+                <br>
+                <br>
+                <h3>تواصل مع الدعم الفني </h3>
+                <p>
+                    pupubg2024@gmail.com
+                </p>
+                <p>
+                    +19294768357
+                </p>
+                <br>
+                <br>
+                <h#>
+                    شركاء العمل
+                </h>
+                <p>@2020-2024 KRGAFN,ALLRIGTS RESERVED.</p>
+                <p>@2019-2024 PRroxima BETA PLE. LIMITED. ALL RIGHTS RESERVED.</p>
+                <p>LIMITED. ALL RIGHTS</p>
+
+                <footer>
+                    <br>
+                    <h3>تابعني علي منصات التواصل</h3>
+                    <div class="row">
+                        <a href="https://www.facebook.com/PUBGMOBILE.MENA.OFFICIAL/"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/PUBGMOBILE_ARB"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/pubgmobile_mena/"><i class="fa fa-instagram"></i></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.tencent.ig&hl=ar&gl=US"><i
+                                class="fa fa-play store"></i></a>
+                    </div>
+
+                    <ui><a href="#" class="active">Download PUBG</a></li>
+                        <br>
+                        <br>
+                        <div class="download">
+
+                            <a href="https://apps.apple.com/tn/app/pubg-mobile/id1330123889?l=ar"
+                                class="app-download"></a>
+                            <a href="https://play.google.com/store/apps/details?id=com.tencent.ig&hl=ar&gl=US"
+                                class="app-download"></a>
+                        </div>
+                        <div class="footer-copyright">
+                            <p>© 2024 PU@ pubg جميع ألحقوق محفوظه</p>
+                        </div>
+                        <div class="row">
+                            <a href="https://www.facebook.com/PUBGMOBILE.MENA.OFFICIAL/?brand_redir=908555025972310&locale=ar_AR"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/PUBGMOBILE_ARB?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/pubgmobile_mena/?hl=ar"><i class="fa fa-instagram"></i></a>
+                        </div>
+                </footer>
+            </section>
+            <video src="./moooo.mp4" autoplay muted loop></video>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

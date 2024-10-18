@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الصفحة الأولى</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .container {
+        margin-top: 100px;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        margin: 0 10px;
+    }
+    #welcomeBtn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+    }
+    #followBtn {
+        background-color: #008CBA;
+        color: white;
+        border: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <button id="welcomeBtn" class="btn">أهلا</button>
+    <button id="followBtn" class="btn">متابعة</button>
+</div>
+
+<script>
+    document.getElementById("followBtn").disabled = true; // يتم تعطيل زر المتابعة بشكل افتراضي
+
+    document.getElementById("welcomeBtn").addEventListener("click", function() {
+        document.getElementById("followBtn").disabled = false; // يتم تمكين زر المتابعة عند الضغط على زر أهلا
+    });
+
+    document.getElementById("followBtn").addEventListener("click", function() {
+        window.location.href = "الصفحة_الثانية.html"; // يتم توجيه المستخدم إلى الصفحة الثانية عند الضغط على زر المتابعة
+    });
+</script>
+
+</body>
+</html>
